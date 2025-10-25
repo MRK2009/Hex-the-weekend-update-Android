@@ -17,10 +17,6 @@ import flixel.input.keyboard.FlxKey;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-#if mobileC
-import ui.FlxVirtualPad;
-import flixel.FlxCamera;
-#end
 
 class OptionCata extends FlxSprite
 {
@@ -117,10 +113,6 @@ class OptionsMenu extends FlxSubState
 
 	public var descText:FlxText;
 	public var descBack:FlxSprite;
-	
-	#if mobileC
-	var virtualpad:FlxVirtualPad;
-	#end
 
 	override function create()
 	{
@@ -249,8 +241,8 @@ class OptionsMenu extends FlxSubState
 
 		selectedOption = selectedCat.options[0];
 
-		#if mobileC
-		
+		#if mobile
+		addVirtualPad(LEFT_FULL, A_B);
 		#end
 
 		super.create();
