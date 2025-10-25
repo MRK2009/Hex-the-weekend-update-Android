@@ -95,7 +95,7 @@
 	<haxelib name="linc_luajit" />
 	<haxelib name="hxvm-luajit" />
         <haxelib name="hxCodec" />
-        <haxelib name='extension-androidtools' if='android' />
+        <haxelib name="extension-androidtools" if="android" />
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<!--Disable the Flixel core focus lost screen-->
@@ -121,12 +121,7 @@
 		<config:android permission="android.permission.WRITE_EXTERNAL_STORAGE" />
 		<config:android permission="android.permission.READ_EXTERNAL_STORAGE" />
 		<config:android permission="android.permission.VIBRATE" />
-
-		<!--Gradle-->
-		<config:android gradle-version="7.6" gradle-plugin="7.3.1" />
-
-		<!--Audio Recording Fix-->
-		<config:android target-sdk-version="29" if="${lime <= 8.0.0}" />
+		<config:android permission="android.permission.CAPTURE_AUDIO_OUTPUT"/>
 	</section>
 
 	<section if="ios">
@@ -154,7 +149,7 @@
   <!-- Defines whether Lua Modcharts should be enabled. Only works on Windows. -->
   <haxedef name="FEATURE_LUAMODCHART" />
   <!-- Defines whether WebM videos should be enabled. Currently only enabled on Windows. -->
-  <haxedef name="FEATURE_WEBM" if="windows" />
+  <haxedef name="FEATURE_WEBM" if="desktop" />
   <!-- Defines whether StepMania files can be loaded. -->
   <haxedef name="FEATURE_STEPMANIA" if="desktop" />
   <!-- Defines whether the Thread class can be used. -->
