@@ -28,7 +28,7 @@ class HexGalleryMenu extends HexMenuState
 
 		setVisible(0);
 
-		#if mobileC
+		#if mobile
 		addVirtualPad(FULL, A_B);
 		#end
 
