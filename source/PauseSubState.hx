@@ -18,10 +18,6 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-#if mobileC
-import ui.FlxVirtualPad;
-import flixel.FlxCamera;
-#end
 
 class PauseSubState extends MusicBeatSubstate
 {
@@ -135,14 +131,9 @@ class PauseSubState extends MusicBeatSubstate
 
 		cameras = [PlayState.instance.camHUD];
 
-		#if mobileC
-		virtualpad = new FlxVirtualPad(UP_DOWN, A);
-		virtualpad.alpha = 0.75;
-		add(virtualpad);
-		var camcontrol = new FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		virtualpad.cameras = [camcontrol];
+		#if mobile
+		addVirtualPad(UP_DOWN, A);
+		addVirtualPadCamera(false);
 		#end
 	}
 
@@ -314,3 +305,4 @@ class PauseSubState extends MusicBeatSubstate
 		}
 	}
 }
+
