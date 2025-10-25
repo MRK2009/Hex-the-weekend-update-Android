@@ -566,7 +566,7 @@ class HexMenuCreator extends MusicBeatState
 
 		created = true;
 
-		#if mobileC
+		#if mobile
 		addVirtualPad(FULL, A);
 		#end
 		
