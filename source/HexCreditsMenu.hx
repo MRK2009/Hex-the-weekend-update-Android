@@ -24,7 +24,7 @@ class HexCreditsMenu extends HexMenuState
 
 		getItemByName("cameos").visible = false;
 
-		#if mobileC
+		#if mobile
 		addVirtualPad(UP_DOWN, A);
 		#end
 	}
