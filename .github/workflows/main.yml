@@ -52,6 +52,7 @@ jobs:
           haxelib --quiet install actuate
           haxelib --quiet install hscript
           haxelib list
+          haxelib run lime rebuild hxcpp
       - name: Configure Android
         run: |
           haxelib run lime setup -alias -y
