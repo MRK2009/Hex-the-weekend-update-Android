@@ -350,7 +350,7 @@ class HexFreeplayMenu extends HexMenuState
 
 		move(true, true);
 
-		#if mobileC
+		#if mobile
 		addVirtualPad(FULL, A_B);
 		#end
 	}
