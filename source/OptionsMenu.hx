@@ -159,8 +159,6 @@ class OptionsMenu extends FlxSubState
 				new NPSDisplayOption("Shows your current Notes Per Second on the info bar."),
 				new RainbowFPSOption("Make the FPS Counter flicker through rainbow colors."),
 				new CpuStrums("Toggle the CPU's strumline lighting up when it hits a note."),
-                                new GradientHitbox("Toggle hitboxes gradient"),
-                                new HitboxOpacity("toggle hitboxes alpha (opacity)"),
 			]),
 			new OptionCata(640, 40, "Misc", [
 				new FPSOption("Toggle the FPS Counter"),
@@ -170,7 +168,6 @@ class OptionsMenu extends FlxSubState
 				new MissSoundsOption("Toggle miss sounds playing when you don't hit a note."),
 				new ScoreScreen("Show the score screen after the end of a song"),
 				new ShowInput("Display every single input on the score screen."),
-				new About("Android port credits"),
 			]),
 			new OptionCata(935, 40, "Saves", [
 				#if desktop // new ReplayOption("View saved song replays."),
@@ -253,13 +250,7 @@ class OptionsMenu extends FlxSubState
 		selectedOption = selectedCat.options[0];
 
 		#if mobileC
-		virtualpad = new FlxVirtualPad(FULL, A_B);
-		virtualpad.alpha = 0.75;
-		add(virtualpad);
-		var camcontrol = new FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		virtualpad.cameras = [camcontrol];
+		
 		#end
 
 		super.create();
