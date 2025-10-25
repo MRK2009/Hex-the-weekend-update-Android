@@ -11,7 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   androidBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         arch: [release, debug]
@@ -30,13 +30,7 @@ jobs:
         uses: nttld/setup-ndk@main
         id: setup-ndk
         with:
-          ndk-version: r21e
-
-      - name: Setup Java JDK
-        uses: actions/setup-java@main
-        with:
-          distribution: 'zulu'
-          java-version: '19'
+          ndk-version: r22b
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
@@ -46,17 +40,15 @@ jobs:
       - name: Installing Libraries
         run: |
           haxelib --quiet install hxcpp
-          haxelib --quiet install format
-          haxelib --quiet install hxp
           haxelib --quiet install lime 7.9.0
           haxelib --quiet install openfl 9.1.0
           haxelib --quiet install flixel 4.11.0
           haxelib --quiet install flixel-addons 2.11.0
           haxelib --quiet install flixel-ui 2.4.0
-          haxelib --quiet git linc_luajit https://github.com/sirox228/linc_luajit.git
+          haxelib --quiet git linc_luajit https://github.com/PsychExtendedThings/linc_luajit.git
           haxelib --quiet git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
-          haxelib --quiet git hxCodec https://github.com/polybiusproxy/hxCodec.git
-          haxelib --quiet git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
+          haxelib --quiet install hxCodec 2.6.1
+          haxelib --quiet install extension-androidtools 1.8.1
           haxelib --quiet install actuate
           haxelib --quiet install hscript
           haxelib list
@@ -65,7 +57,7 @@ jobs:
           haxelib run lime setup -alias -y
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME_11_X64
           haxelib run lime config ANDROID_SETUP true
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
