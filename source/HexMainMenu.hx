@@ -139,7 +139,7 @@ class HexMainMenu extends HexMenuState
 		getItemByName("options").setPosition(Boxes[4].x, Boxes[4].y);
 		getItemByName("credits").setPosition(Boxes[5].x, Boxes[5].y);
 
-		#if mobileC
+		#if mobile
 		addVirtualPad(UP_DOWN, A);
 		#end
 	}
