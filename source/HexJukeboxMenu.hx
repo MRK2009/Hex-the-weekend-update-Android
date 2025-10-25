@@ -110,7 +110,7 @@ class HexJukeboxMenu extends HexMenuState
 			getItemByName("playing").y = getItemByName("select_symbol").y + 8;
 		else
 			getItemByName("playing").y = getItemByName("otherSelect").y + 8;
-		#if mobileC
+		#if mobile
 		addVirtualPad(UP_DOWN, A_B);
 		#end
 	}
